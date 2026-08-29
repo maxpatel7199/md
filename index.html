@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For Dhruvi ❤️</title>
+    <!-- Premium Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="theme-midnight">
+    <!-- Canvas for advanced star particle environment and fireworks -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- DOM overlay for interaction particles -->
+    <div id="particle-overlay"></div>
+
+    <!-- First-Open Music Instruction Popup (hidden on load) -->
+    <div id="music-instruction-popup" class="music-instruction-popup glass hidden">
+        <p class="popup-text-line-1">🎵 FIRST, CLICK THE MUSIC BUTTON ❤️</p>
+        <p class="popup-text-line-2">Then the surprise will begin...</p>
+    </div>
+
+    <!-- Persistent Header Controls -->
+    <div class="ui-controls">
+        <button id="theme-btn" class="glass-btn" aria-label="Switch Theme">🌙 Midnight Love</button>
+        <button id="music-btn" class="glass-btn" aria-label="Toggle Music">🔇 Paused</button>
+    </div>
+
+    <!-- Hidden Easter Egg Icon -->
+    <div id="hidden-easter-heart" class="easter-egg-trigger" role="button" aria-label="Secret Heart">❤️</div>
+
+    <!-- ==========================================================
+       STAGE 0 & 1: CINEMATIC INTRO & DATE REVEAL OVERLAY
+       ========================================================== -->
+    <section id="intro-screen">
+        <!-- Part A: Intro Message Sequence -->
+        <div id="intro-sequence-container" class="intro-container">
+            <div id="step-msg-1" class="intro-step-text hidden">Hey Dhruvi... ❤️</div>
+            <div id="step-msg-2" class="intro-step-text hidden">I have one surprise for you... ❤️</div>
+            <div id="step-msg-3" class="intro-step-text hidden">
+                <p class="pre-date-text">Before you continue...<br>remember one date.</p>
+                <div class="date-reveal-wrap">
+                    <div class="date-glow-heart"></div>
+                    <h1 class="dramatic-date">18 JUNE ❤️</h1>
+                </div>
+                <p class="post-date-text">The day our story began.</p>
+                <button id="begin-btn" class="glass-btn primary-btn pulse-glow-btn">Remember With Me ✨</button>
+            </div>
+        </div>
+
+        <!-- Part B: One Date Cinematic Zoom Transition (Active after clicking Begin) -->
+        <div id="one-date-cinematic" class="cinematic-overlay hidden">
+            <div class="cinematic-center">
+                <div id="cinematic-particle" class="glowing-core-particle"></div>
+                <h1 id="cinematic-number" class="zoom-out-text hidden">18</h1>
+                <h1 id="cinematic-month" class="zoom-out-text hidden">JUNE</h1>
+                <div id="cinematic-heart" class="zoom-out-text hidden">❤️</div>
+                <h2 id="cinematic-phrase" class="zoom-in-text hidden">Everything changed.</h2>
+                <h2 id="cinematic-names" class="zoom-in-text hidden">Max + Dhruvi</h2>
+                <h2 id="cinematic-footer" class="zoom-in-text hidden">Our story.</h2>
+            </div>
+        </div>
+
+        <!-- Part C: Dhruvi Name Reveal & Heart Merge -->
+        <div id="name-reveal-cinematic" class="cinematic-overlay hidden">
+            <div class="name-reveal-center">
+                <p class="reveal-pre-text">Made especially for...</p>
+                <!-- Animated letter-by-letter container -->
+                <div id="dhruvi-spelled-name" class="spelled-name-wrap">
+                    <span class="spell-letter">D</span>
+                    <span class="spell-letter">H</span>
+                    <span class="spell-letter">R</span>
+                    <span class="spell-letter">U</span>
+                    <span class="spell-letter">V</span>
+                    <span class="spell-letter">I</span>
+                    <span class="spell-letter-heart">❤️</span>
+                </div>
+
+                <!-- Max + Dhruvi Heart merging animation -->
+                <div class="merge-hearts-wrap">
+                    <div id="heart-max" class="glowing-merge-heart">Max ❤️</div>
+                    <div id="heart-dhruvi" class="glowing-merge-heart">Dhruvi ❤️</div>
+                    <div id="hearts-merged" class="merged-heart-title hidden">
+                        <h1>MAX + DHRUVI</h1>
+                        <div class="infinity-animation-wrap">
+                            <svg class="infinity-svg" viewBox="0 0 100 50" width="120" height="60">
+                                <path class="infinity-path"
+                                    d="M30 25 C10 10, 10 40, 30 25 C50 10, 70 10, 70 25 C70 40, 50 40, 30 25 Z"
+                                    fill="none" stroke-width="2" />
+                                <text class="infinity-heart-particle p1">❤️</text>
+                                <text class="infinity-heart-particle p2">💖</text>
+                                <text class="infinity-heart-particle p3">💕</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+       MAIN EXPERIENCE (Scrollable romantic storytelling)
+       ========================================================== -->
+    <div id="main-experience" class="hidden">
+
+        <!-- SECTION 1: Welcome & Cinematic Beating Heart -->
+        <section id="reveal-section" class="scroll-section">
+            <!-- Gujarati-inspired traditional Rangoli corner motifs -->
+            <div class="gujarat-decoration top-left"></div>
+            <div class="gujarat-decoration top-right"></div>
+
+            <div class="reveal-wrapper">
+                <div class="heart-reveal-container">
+                    <div class="orbiting-ring"></div>
+                    <div class="orbiting-hearts-container">
+                        <div class="tiny-orbiting-heart o1">❤️</div>
+                        <div class="tiny-orbiting-heart o2">❤️</div>
+                    </div>
+                    <div class="heart-pulse-glow"></div>
+                    <div class="main-heart" id="interactive-main-heart" role="button"
+                        aria-label="Beating love story core"></div>
+                </div>
+
+                <div class="reveal-text-container">
+                    <h2 class="made-for-text">Our Story Core</h2>
+                    <h1 class="partner-name-title">Max & Dhruvi</h1>
+                    <p class="romantic-subtitle-quote">"From 12th Standard studying to walking our dream together."</p>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <span>Scroll down to read our story</span>
+                <div class="arrow-down">↓</div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Our Story Timeline -->
+        <section id="timeline-section" class="scroll-section">
+            <div class="section-content">
+                <div class="gujarat-title-motif">
+                    <svg class="gujarat-svg" viewBox="0 0 100 20" width="120" height="24">
+                        <path d="M 0,10 C 20,0 30,20 50,10 C 70,0 80,20 100,10" fill="none" stroke="currentColor"
+                            stroke-width="2" />
+                        <circle cx="50" cy="10" r="4" fill="currentColor" />
+                    </svg>
+                </div>
+                <h2 class="section-title">Our Little Story ❤️</h2>
+                <p class="section-subtitle">A journey through classrooms and years</p>
+
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+
+                    <div class="timeline-item glass hidden-step" data-step="1">
+                        <div class="timeline-badge">18 Jun</div>
+                        <div class="timeline-card-content">
+                            <h3>The Beginning 🌟</h3>
+                            <p>When I started 12th standard, I didn't know that this day would become one of the most
+                                special days of my life.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item glass hidden-step" data-step="2">
+                        <div class="timeline-badge">12th Standard</div>
+                        <div class="timeline-card-content">
+                            <h3>12th Standard 📚❤️</h3>
+                            <p>While I was starting a new chapter in my studies, I was also beginning a beautiful
+                                chapter in my life.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item glass hidden-step" data-step="3">
+                        <div class="timeline-badge">College</div>
+                        <div class="timeline-card-content">
+                            <h3>College Days 🎓</h3>
+                            <p>Time passed. School became college. Life changed. But one thing stayed special.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item glass hidden-step" data-step="4">
+                        <div class="timeline-badge">3rd Year</div>
+                        <div class="timeline-card-content">
+                            <h3>3rd Year College ❤️</h3>
+                            <p>And now I'm in my 3rd year of college, but when I look back, 18 June still feels special.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Personal Message Card -->
+        <section id="personal-msg-section" class="scroll-section">
+            <div class="section-content">
+                <div class="msg-card glass">
+                    <h2 class="msg-card-header">Dhruvi ❤️</h2>
+                    <h3 class="msg-card-sub">Do you know what I love about our story?</h3>
+
+                    <div class="msg-card-lines-wrap" id="personal-story-lines">
+                        <p class="story-reveal-line hidden-line">It didn't need a perfect beginning.</p>
+                        <p class="story-reveal-line hidden-line">It just needed one special day.</p>
+                        <p class="story-reveal-line hidden-line">18 June.</p>
+                        <p class="story-reveal-line hidden-line">From 12th standard...</p>
+                        <p class="story-reveal-line hidden-line">through all the changes...</p>
+                        <p class="story-reveal-line hidden-line">through school...</p>
+                        <p class="story-reveal-line hidden-line">through college...</p>
+                        <p class="story-reveal-line hidden-line">and now into my 3rd year...</p>
+                        <p class="story-reveal-line highlight-story hidden-line">somehow, you're still one of the most
+                            beautiful parts of my story.</p>
+                        <p class="story-reveal-line highlight-story hidden-line">And I hope you're there for all the
+                            chapters still to come. ❤️</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Live Counter -->
+        <section id="counter-section" class="scroll-section">
+            <div class="section-content">
+                <h2 class="section-title">Since 18 June ❤️</h2>
+                <p class="section-subtitle">Every second has become a part of our story</p>
+
+                <div class="counter-grid">
+                    <div class="counter-card glass">
+                        <span class="count-num" id="years-count">0</span>
+                        <span class="count-label">Years</span>
+                    </div>
+                    <div class="counter-card glass">
+                        <span class="count-num" id="months-count">0</span>
+                        <span class="count-label">Months</span>
+                    </div>
+                    <div class="counter-card glass">
+                        <span class="count-num" id="days-count">0</span>
+                        <span class="count-label">Days</span>
+                    </div>
+                </div>
+
+                <div class="counter-sub-grid">
+                    <div class="counter-card sub-card glass">
+                        <span class="count-num sub-num" id="hours-count">0</span>
+                        <span class="count-label">Hours</span>
+                    </div>
+                    <div class="counter-card sub-card glass">
+                        <span class="count-num sub-num" id="mins-count">0</span>
+                        <span class="count-label">Minutes</span>
+                    </div>
+                    <div class="counter-card sub-card glass">
+                        <span class="count-num sub-num" id="secs-count">0</span>
+                        <span class="count-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: School to College transition animation -->
+        <section id="college-life-section" class="scroll-section">
+            <div class="section-content">
+                <h2 class="section-title">Life Changed... But My Feelings Didn't ❤️</h2>
+                <p class="section-subtitle">From school days to college days...</p>
+
+                <div class="transition-flow-container">
+                    <div class="flow-step glass">
+                        <div class="flow-icon">📚</div>
+                        <h4>12th Standard</h4>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step glass">
+                        <div class="flow-icon">🎓</div>
+                        <h4>College</h4>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step glass">
+                        <div class="flow-icon">🏫</div>
+                        <h4>3rd Year</h4>
+                    </div>
+                </div>
+
+                <div class="class-reflection glass">
+                    <p class="reflect-text hidden-reflect">Different classrooms.</p>
+                    <p class="reflect-text hidden-reflect">Different routines.</p>
+                    <p class="reflect-text hidden-reflect">Different responsibilities.</p>
+                    <p class="reflect-text hidden-reflect">But the same special person.</p>
+                    <h3 class="reflect-title hidden-reflect">Dhruvi ❤️</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: Memory Cards & Photos -->
+        <section id="memories-section" class="scroll-section">
+            <div class="section-content">
+                <h2 class="section-title">Our Story Milestones ✨</h2>
+                <p class="section-subtitle">Moments written in Gujarati air</p>
+                <div class="memories-grid" id="memories-grid">
+                    <!-- Populated dynamically from script.js CONFIG -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: Book of Future Chapters -->
+        <section id="future-section" class="scroll-section">
+            <div class="section-content">
+                <h2 class="section-title">Our Story Isn't Finished Yet...</h2>
+                <p class="section-subtitle">Tap the book to flip pages of our dreams</p>
+
+                <div class="book-container">
+                    <div class="book" id="glowing-book">
+                        <div class="book-cover">
+                            <h3>Max & Dhruvi</h3>
+                            <p>Our Book of Chapters</p>
+                        </div>
+                        <div class="book-pages-wrapper">
+                            <!-- Pages filled dynamically by JS -->
+                            <div class="book-page active-page" id="book-page-content">
+                                <div class="page-inner-content">
+                                    <h4>The Cover</h4>
+                                    <p>Tap to open the book of our future plans and chapters.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Future Dreams Cards -->
+                <div class="dreams-wrapper">
+                    <div class="dream-tag">More memories ❤️</div>
+                    <div class="dream-tag">More laughter 😂❤️</div>
+                    <div class="dream-tag">More adventures ✨</div>
+                    <div class="dream-tag">More late-night conversations 🌙</div>
+                    <div class="dream-tag">More celebrations 🎉</div>
+                    <div class="dream-tag">More reasons to smile 😊</div>
+                    <div class="dream-tag">More us ❤️</div>
+                </div>
+
+                <!-- Distance and Time flow effect -->
+                <div class="time-quotes-box glass">
+                    <p class="time-flow-line">"Days become memories."</p>
+                    <p class="time-flow-line">"Months become chapters."</p>
+                    <p class="time-flow-line">"Years become our story."</p>
+                    <h3 class="time-flow-final">And every moment with Dhruvi is worth remembering.</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: Dynamic Love Equation & Equation burst -->
+        <section id="equation-section" class="scroll-section">
+            <div class="section-content">
+                <h2 class="section-title">The Love Equation ❤️</h2>
+
+                <div class="equation-container glass">
+                    <div class="eq-block" id="eq-step-1">MAX</div>
+                    <div class="eq-operator" id="eq-step-2">+</div>
+                    <div class="eq-block" id="eq-step-3">DHRUVI</div>
+                    <div class="eq-operator" id="eq-step-4">=</div>
+                    <div class="eq-heart-result" id="eq-step-5">❤️</div>
+                </div>
+
+                <div class="equation-forever-block hidden" id="eq-forever-text">
+                    <h2>MAX + DHRUVI = FOREVER</h2>
+                    <h3>FOREVER = ♾️</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: Special Love Meter Button -->
+        <section id="meter-section" class="scroll-section">
+            <div class="section-content">
+                <h2 class="section-title">How much do I love you?</h2>
+                <p class="section-subtitle">Click to calculate</p>
+
+                <div class="love-meter-wrapper glass">
+                    <button id="love-meter-btn" class="glass-btn primary-btn">Tap if you love me ❤️</button>
+
+                    <div class="meter-bar-container hidden" id="meter-bar-container">
+                        <div class="meter-bar-fill" id="meter-bar-fill"></div>
+                        <span class="meter-percentage" id="meter-percentage">0%</span>
+                    </div>
+
+                    <h3 class="meter-result-text hidden" id="meter-result-text"></h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 10: Envelope & Love Letter -->
+        <section id="envelope-section" class="scroll-section">
+            <div class="section-content">
+                <h2 class="section-title">A Message From Max</h2>
+
+                <div class="envelope-container">
+                    <div class="envelope" id="interactive-envelope" role="button" aria-label="Open Love Letter">
+                        <div class="envelope-flap"></div>
+                        <div class="envelope-pocket"></div>
+                        <div class="letter-preview">
+                            <p>Dhruvi, there's something I want you to read... 💌</p>
+                        </div>
+                    </div>
+                </div>
+                <button id="open-letter-btn" class="glass-btn primary-btn">Open My Heart</button>
+            </div>
+        </section>
+
+        <!-- SECTION 11: Celebrate Fireworks -->
+        <section id="celebrate-section" class="scroll-section">
+            <div class="section-content">
+                <h2 class="section-title">Light Up Our Sky 🎆</h2>
+                <p class="section-subtitle">Click to spark fireworks</p>
+                <button id="fireworks-btn" class="glass-btn primary-btn">Celebrate Our Love 🎆</button>
+            </div>
+        </section>
+
+        <!-- SECTION 12: Final surprise entry button -->
+        <section id="final-trigger-section" class="scroll-section">
+            <div class="section-content">
+                <h2 class="section-title">One Last Thing... ❤️</h2>
+                <button id="final-surprise-btn" class="glass-btn primary-btn pulse-glow-btn">Open It 💌</button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FULLSCREEN DYNAMIC LETTER MODAL -->
+    <div id="letter-modal" class="modal-overlay hidden">
+        <div class="letter-modal-content glass">
+            <button id="close-letter-btn" class="close-btn" aria-label="Close Letter">×</button>
+            <div class="letter-paper">
+                <div class="letter-text" id="typewriter-letter"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CINEMATIC STAGE 18: FINAL SURPRISE FULL SCREEN OVERLAY -->
+    <div id="final-surprise-overlay" class="modal-overlay hidden">
+        <div class="final-surprise-content">
+            <div class="giant-heart-wrapper">
+                <div class="giant-heart-glow"></div>
+                <div class="giant-heart" id="giant-heart"></div>
+            </div>
+
+            <div class="final-quotes-container">
+                <p class="final-surprise-quote" id="fq-1"></p>
+                <p class="final-surprise-quote" id="fq-2"></p>
+                <p class="final-surprise-quote" id="fq-3"></p>
+                <p class="final-surprise-quote" id="fq-4"></p>
+                <p class="final-surprise-quote" id="fq-5"></p>
+                <p class="final-surprise-quote" id="fq-6"></p>
+                <p class="final-surprise-quote" id="fq-7"></p>
+                <p class="final-surprise-quote" id="fq-8"></p>
+                <p class="final-surprise-quote highlight-fq" id="fq-9"></p>
+                <p class="final-surprise-quote highlight-fq" id="fq-10"></p>
+            </div>
+
+            <!-- YES / YES choice block -->
+            <div class="final-interactive-block hidden" id="final-choice-block">
+                <h2 class="forever-title">Forever? ♾️</h2>
+                <div class="forever-btns">
+                    <button id="forever-yes" class="glass-btn romantic-btn">Yes ❤️</button>
+                    <button id="forever-no" class="glass-btn romantic-btn">Yes, absolutely! 💖</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STAGE 20: FINAL CELEBRATION FOREVER SCREEN -->
+    <div id="final-forever-screen" class="modal-overlay hidden">
+        <div class="final-forever-content">
+            <h1 class="forever-heading">Max ❤️ Dhruvi</h1>
+            <p class="forever-subheading">Since 18 June</p>
+            <p class="forever-subheading">Still writing our story...</p>
+            <h2 class="forever-chapter">Chapter ∞</h2>
+
+            <div class="infinity-animation-wrap">
+                <svg class="infinity-svg" viewBox="0 0 100 50" width="160" height="80">
+                    <path class="infinity-path"
+                        d="M30 25 C10 10, 10 40, 30 25 C50 10, 70 10, 70 25 C70 40, 50 40, 30 25 Z" fill="none"
+                        stroke-width="2" />
+                    <text class="infinity-heart-particle p1">❤️</text>
+                    <text class="infinity-heart-particle p2">💖</text>
+                    <text class="infinity-heart-particle p3">💕</text>
+                </svg>
+            </div>
+
+            <!-- Gujarat inspired credit text -->
+            <p class="gujarat-credit">Made with all my heart, in Gujarat, for Dhruvi. ❤️</p>
+            <button id="restart-experience-btn" class="glass-btn romantic-btn">Relive Our Story 💫</button>
+        </div>
+    </div>
+
+    <!-- Background Music Audio -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="assets/romantic.mp3" type="audio/mpeg">
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
